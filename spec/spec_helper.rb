@@ -1,3 +1,5 @@
+require File.expand_path('../../lib/solitaire_coder', __FILE__)
+
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
     # This option will default to `true` in RSpec 4. It makes the `description`
