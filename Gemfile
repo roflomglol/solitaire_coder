@@ -3,4 +3,10 @@ source "https://rubygems.org"
 
 ruby '~> 2.4.0'
 
-gem 'rspec'
+group :development do
+  gem 'byebug', platform: :mri
+end
+
+group :test do
+  gem 'rspec'
+end
