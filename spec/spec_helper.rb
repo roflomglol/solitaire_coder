@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require File.expand_path('../../lib/solitaire_coder', __FILE__)
 
 RSpec.configure do |config|
