@@ -10,6 +10,15 @@ module SolitaireCoder
       @cards = (1..52).to_a.push('A', 'B')
     end
 
+    def key
+      move_the_a_joker_down_one_card
+      move_the_b_joker_down_two_cards
+      tripple_cut
+      count_cut
+
+      self
+    end
+
     def move_a_card(card)
       current_index = cards.index(card)
       target_index  = current_index + 1

@@ -63,4 +63,13 @@ RSpec.describe SolitaireCoder::Deck do
       end
     end
   end
+
+  describe '#key' do
+    it 'keys the deck' do
+      deck.cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'A', 'B']
+      stub_const('SolitaireCoder::Deck::DECK_SIZE', deck.cards.size)
+
+      expect { deck.key }.to change { deck.cards }.to([2, 3, 4, 5, 6, 7, 8, 9, 10, 'A', 'B', 1])
+    end
+  end
 end
