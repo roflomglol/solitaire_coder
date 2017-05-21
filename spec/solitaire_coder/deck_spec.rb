@@ -47,4 +47,20 @@ RSpec.describe SolitaireCoder::Deck do
       end
     end
   end
+
+  describe '#count_cut' do
+    specify 'takes number of cards equal to value of last card, moves them just above the last card' do
+      deck.cards = ['A', 1, 3, 'B', 2]
+
+      expect { deck.count_cut }.to change { deck.cards }.to([3, 'B','A', 1, 2])
+    end
+
+    context 'jokers are at the top and the bottom of the dec' do
+      it 'does not change the deck' do
+        deck.cards = ['A', 1, 2, 3, 'B']
+
+        expect { deck.count_cut }.not_to change { deck.cards }
+      end
+    end
+  end
 end

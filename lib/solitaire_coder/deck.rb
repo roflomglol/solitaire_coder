@@ -34,6 +34,15 @@ module SolitaireCoder
       self.cards = first_cut + second_cut + third_cut
     end
 
+    def count_cut
+      return if last_card_is_a_joker?
+
+      last_card       = cards.last
+      top_cut         = cards.shift(last_card)
+
+      self.cards = cards.insert(cards.index(last_card), *top_cut)
+    end
+
     private
 
     def first_joker_index
@@ -42,6 +51,10 @@ module SolitaireCoder
 
     def last_joker_index
       cards.rindex { |card| card =~ /A|B/ }
+    end
+
+    def last_card_is_a_joker?
+      cards.last =~ /A|B/
     end
   end
 end
