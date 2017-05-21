@@ -23,4 +23,12 @@ RSpec.describe SolitaireCoder::Deck do
       expect { subject }.to change { deck.cards.index('A') }.from(52).to(53)
     end
   end
+
+  describe '#move_the_b_joker_down_two_cards' do
+    subject { deck.move_the_b_joker_down_two_cards }
+
+    it 'is expected to move the B joker down two cards' do
+      expect { subject }.to change { deck.cards.index('B') }.from(53).to(2)
+    end
+  end
 end

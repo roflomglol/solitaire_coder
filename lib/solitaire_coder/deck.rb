@@ -21,5 +21,9 @@ module SolitaireCoder
     def move_the_a_joker_down_one_card
       move_a_card('A')
     end
+
+    def move_the_b_joker_down_two_cards
+      2.times { move_a_card('B') }
+    end
   end
 end
