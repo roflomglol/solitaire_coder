@@ -36,7 +36,7 @@ module SolitaireCoder
     end
 
     def tripple_cut
-      first_cut  = cards[last_joker_index + 1..cards.size - 1]
+      first_cut  = cards[last_joker_index + 1..DECK_SIZE - 1]
       second_cut = cards[first_joker_index..last_joker_index]
       third_cut  = cards[0...first_joker_index]
 
