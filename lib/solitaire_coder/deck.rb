@@ -17,5 +17,9 @@ module SolitaireCoder
 
       cards.insert(target_index, cards.delete_at(current_index))
     end
+
+    def move_the_a_joker_down_one_card
+      move_a_card('A')
+    end
   end
 end
