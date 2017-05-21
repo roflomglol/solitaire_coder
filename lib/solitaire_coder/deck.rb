@@ -25,5 +25,23 @@ module SolitaireCoder
     def move_the_b_joker_down_two_cards
       2.times { move_a_card('B') }
     end
+
+    def tripple_cut
+      first_cut  = cards[last_joker_index + 1..cards.size - 1]
+      second_cut = cards[first_joker_index..last_joker_index]
+      third_cut  = cards[0...first_joker_index]
+
+      self.cards = first_cut + second_cut + third_cut
+    end
+
+    private
+
+    def first_joker_index
+      cards.find_index { |card| card =~ /A|B/ }
+    end
+
+    def last_joker_index
+      cards.rindex { |card| card =~ /A|B/ }
+    end
   end
 end

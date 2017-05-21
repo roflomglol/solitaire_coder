@@ -31,4 +31,20 @@ RSpec.describe SolitaireCoder::Deck do
       expect { subject }.to change { deck.cards.index('B') }.from(53).to(2)
     end
   end
+
+  describe '#tripple_cut' do
+    it 'move cards from above the top joker below the second joker' do
+      deck.cards = [1,'B', 2, 'A', 3]
+
+      expect { deck.tripple_cut }.to change { deck.cards }.to([3, 'B', 2, 'A', 1])
+    end
+
+    context 'jokers are at the top and the bottom of the deck' do
+      it 'does not change the deck' do
+        deck.cards = ['A', 1, 2, 3, 'B']
+
+        expect { deck.tripple_cut }.not_to change { deck.cards }
+      end
+    end
+  end
 end
