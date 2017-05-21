@@ -1,3 +1,8 @@
+AllCops:
+  Exclude:
+    - 'spec/**/*'
+    - 'vendor/bundle/**/*'
+
 Metrics/LineLength:
   Max: 100
 
