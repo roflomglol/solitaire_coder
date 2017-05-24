@@ -19,6 +19,10 @@ module SolitaireCoder
       self
     end
 
+    def keystream_card
+      cards.first(first_card_value + 1).last
+    end
+
     def move_a_card(card)
       current_index = cards.index(card)
       target_index  = current_index + 1
@@ -64,6 +68,17 @@ module SolitaireCoder
 
     def last_card_is_a_joker?
       cards.last =~ /A|B/
+    end
+
+    def first_card_value
+      first_card = cards.first
+
+      case first_card
+      when /A|B/
+        53
+      else
+        first_card
+      end
     end
   end
 end

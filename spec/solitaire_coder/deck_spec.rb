@@ -72,4 +72,14 @@ RSpec.describe SolitaireCoder::Deck do
       expect { deck.key }.to change { deck.cards }.to([2, 3, 4, 5, 6, 7, 8, 9, 10, 'A', 'B', 1])
     end
   end
+
+  describe '#keystream_card', :focus do
+    subject { deck.keystream_card }
+
+    it 'gives a keystream card' do
+      deck.cards = [1, 2, 'A', 'B', 3]
+
+      expect(subject).to eq(2)
+    end
+  end
 end
